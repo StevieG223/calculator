@@ -53,15 +53,15 @@ equalsButton.addEventListener("click", ()=>{
     let result = operate(numbersAndOperator);
     justGotResult = true;
     updateDisplay(result);
-    this.classList.add("button-pressed");
-    setTimeout(()=>this.classList.remove('button-pressed'), 200);
+    equalsButton.classList.add("button-pressed");
+    setTimeout(()=>equalsButton.classList.remove('button-pressed'), 200);
 });
 
 const clearButton = document.querySelector(".clear-button");
 clearButton.addEventListener("click", ()=>{
     inputs = "0"
     updateDisplay(inputs);
-    this.classList.add("button-pressed");
-    setTimeout(()=>this.classList.remove('button-pressed'), 200)
+    clearButton.classList.add("button-pressed");
+    setTimeout(()=>clearButton.classList.remove('button-pressed'), 200)
 });
 
