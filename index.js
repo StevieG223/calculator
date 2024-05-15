@@ -5,14 +5,18 @@ function updateDisplay(string){
 
 let inputs = "";
 function btnClick(){
+    if(justGotResult){
+        inputs = ''
+        justGotResult = false
+    }
     inputs +=`${this.textContent}`;
-    updateDisplay(inputs)
+    updateDisplay(inputs);
 }
 
 const buttons = document.querySelectorAll(".calc-number-button");
 buttons.forEach(button=> button.addEventListener("click", btnClick));
 
-const clearButton = document.querySelector("clear-button");
+
 
 function parseInput(string){
     let componenets = string.split("");
@@ -43,9 +47,17 @@ function operate(inputsObj){
     }
 }
 
+let justGotResult = false;
 const equalsButton = document.querySelector(".equals-button");
 equalsButton.addEventListener("click", ()=>{
     let numbersAndOperator = parseInput(inputs);
     let result = operate(numbersAndOperator);
+    justGotResult = true;
     updateDisplay(result);
+})
+
+const clearButton = document.querySelector(".clear-button");
+clearButton.addEventListener("click", ()=>{
+    inputs = "0"
+    updateDisplay(inputs);
 })
