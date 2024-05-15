@@ -11,12 +11,12 @@ function btnClick(){
     }
     inputs +=`${this.textContent}`;
     updateDisplay(inputs);
+    this.classList.add("button-pressed");
+    setTimeout(()=>this.classList.remove('button-pressed'), 200)
 }
 
 const buttons = document.querySelectorAll(".calc-number-button");
 buttons.forEach(button=> button.addEventListener("click", btnClick));
-
-
 
 function parseInput(string){
     let componenets = string.split("");
@@ -33,7 +33,6 @@ function parseInput(string){
     }
     return inputsObj;    
     }
-
 
 function operate(inputsObj){
     if (inputsObj.operator==="+"){
@@ -54,10 +53,15 @@ equalsButton.addEventListener("click", ()=>{
     let result = operate(numbersAndOperator);
     justGotResult = true;
     updateDisplay(result);
-})
+    this.classList.add("button-pressed");
+    setTimeout(()=>this.classList.remove('button-pressed'), 200);
+});
 
 const clearButton = document.querySelector(".clear-button");
 clearButton.addEventListener("click", ()=>{
     inputs = "0"
     updateDisplay(inputs);
-})
+    this.classList.add("button-pressed");
+    setTimeout(()=>this.classList.remove('button-pressed'), 200)
+});
+

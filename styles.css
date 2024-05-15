@@ -78,7 +78,7 @@ body{
 }
 
 .button-pressed{
-    transform: scale(1.1);
-    border-color: #f55286;
-    box-shadow: 0 0 1rem #f55286;
+    transform: scale(0.9);
+    border-color: #05d9e8;
+    box-shadow: 0 0 1rem #05d9e8;
 }
